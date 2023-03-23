@@ -6,6 +6,10 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/api/communication-abstractor.js"></script>
     <script src="assets/js/var&const/var.js"></script>
+    <script src="data/api-options/api-options-data.js"></script>
+    <script src="assets/js/onPageLoad/generate-options.js"></script>
+    <script src="assets/js/onPageLoad/options-accumulator.js"></script>
+    <script src="assets/js/onPageLoad/onChangeEvents.js"></script>
 </head>
 <body>
 <header>
@@ -13,6 +17,14 @@
 </header>
 
 <main>
+
+    <div class="api-options">
+        <label for="interface">Choose an API:</label>
+        <select id="interface"></select>
+
+        <label for="method">Choose a method</label>
+        <select id="method"></select>
+    </div>
 
 </main>
 
