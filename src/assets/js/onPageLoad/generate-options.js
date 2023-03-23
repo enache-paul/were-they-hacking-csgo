@@ -4,14 +4,9 @@
 //  /ISteamNews/GetNewsForApp/v0002/?appid=440&count=3&maxlength=300&format=json
 //  API interface Method      version   query parameters
 
-function addHTMLOption(name, selector) {
-    const html = `<option value="${name}" id="${name}">${name}</option>`
-    document.querySelector(selector).insertAdjacentHTML("beforeend", html)
-}
-
 function insertAllInterfacesOptions() {
     apiOptionsData.apiInterface.forEach(steamInterface => {
-        addHTMLOption(steamInterface.name, "#interface")
+        addElement(steamInterface.name, "#interface", "option", steamInterface)
     })
 }
 
@@ -21,7 +16,7 @@ function insertMethods() {
     apiOptionsData.apiInterface.forEach(steamInterface => {
         if (steamInterface.name === interfaceName && steamInterface.methods) {
             steamInterface.methods.forEach(method => {
-                addHTMLOption(method.name, "#method")
+                addElement(method.name, "#method", "option", method)
             })
         }
     })
@@ -30,4 +25,17 @@ function insertMethods() {
 
 function clearSelector(selector) {
     document.querySelector(selector).innerHTML = '';
+}
+
+function addElement(innerText, selector, elementType, object) {
+    const element = document.createElement(elementType);
+
+    for (const property in object) {
+        if (typeof object[property] !== "object")
+            element.setAttribute(`data-${property}`, object[property]);
+    }
+
+    element.innerText = innerText;
+
+    document.querySelector(selector).insertAdjacentElement("beforeend", element)
 }
