@@ -64,6 +64,8 @@ function interfaceHasMethod() {
 function addInputLabel(type, id, name, required) {
     const input = document.createElement("input");
     const label = document.createElement("label");
+    const div = document.createElement("div");
+    div.classList.add("attribute", `${id}`);
 
     input.type = type;
     input.id = id;
@@ -75,6 +77,8 @@ function addInputLabel(type, id, name, required) {
     label.for = id;
     label.innerText = name;
 
-    document.querySelector(".attributes").insertAdjacentElement("beforeend", label);
-    document.querySelector(".attributes").insertAdjacentElement("beforeend", input);
+    div.appendChild(label);
+    div.appendChild(input);
+
+    document.querySelector(".attributes").insertAdjacentElement("beforeend", div);
 }
