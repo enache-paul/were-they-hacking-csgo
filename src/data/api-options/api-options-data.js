@@ -13,7 +13,8 @@ const apiOptionsData =
                         arguments : [
                             {
                                 name : "gameid",
-                                description : "AppID of the game you want the news of."
+                                description : "AppID of the game you want the news of.",
+                                required : true
                             },
                             {
                                 name : "format",
@@ -32,7 +33,8 @@ const apiOptionsData =
                         arguments : [
                             {
                                 name : "gameid",
-                                description : "AppID of the game you want the news of."
+                                description : "AppID of the game you want the news of.",
+                                required : true
                             },
                             {
                                 name : "format",
@@ -46,7 +48,8 @@ const apiOptionsData =
                         arguments : [
                             {
                                 name : "steamids",
-                                description : "Comma-delimited list of 64 bit Steam IDs to return profile information for. Up to 100 Steam IDs can be requested."
+                                description : "Comma-delimited list of 64 bit Steam IDs to return profile information for. Up to 100 Steam IDs can be requested.",
+                                required : true
                             },
                             {
                                 name : "format",

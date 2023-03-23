@@ -1,9 +1,5 @@
 "use strict"
 
-// api link is usually
-//  /ISteamNews/GetNewsForApp/v0002/?appid=440&count=3&maxlength=300&format=json
-//  API interface Method      version   query parameters
-
 function insertAllInterfacesOptions() {
     apiOptionsData.apiInterface.forEach(steamInterface => {
         addElement(steamInterface.name, "#interface", "option", steamInterface)
@@ -20,8 +16,29 @@ function insertMethods() {
             })
         }
     })
-
 }
+
+function insertAttributes() {
+    clearSelector(".attributes")
+
+    const attributesElement = document.querySelector(".attributes");
+    const selectedMethod = document.querySelector("#method").value;
+    const interfaceName = document.querySelector("#interface").value;
+
+    apiOptionsData.apiInterface.forEach(steamInterface => {
+        if (steamInterface.name === interfaceName && steamInterface.methods) {
+            steamInterface.methods.forEach(method => {
+                if (method.name === selectedMethod) {
+                    method.arguments.forEach(arg =>
+                        addInputLabel("text", arg.name, arg.name+ " (" + arg.description + ")", arg.required))
+                }
+            })
+        }
+    })
+
+    attributesElement.classList.remove("hidden");
+}
+
 
 function clearSelector(selector) {
     document.querySelector(selector).innerHTML = '';
@@ -38,4 +55,26 @@ function addElement(innerText, selector, elementType, object) {
     element.innerText = innerText;
 
     document.querySelector(selector).insertAdjacentElement("beforeend", element)
+}
+
+function interfaceHasMethod() {
+    return document.querySelector("#method").hasChildNodes();
+}
+
+function addInputLabel(type, id, name, required) {
+    const input = document.createElement("input");
+    const label = document.createElement("label");
+
+    input.type = type;
+    input.id = id;
+    input.name = name;
+    if (required === true) {
+        input.setAttribute("required", "");
+    }
+
+    label.for = id;
+    label.innerText = name;
+
+    document.querySelector(".attributes").insertAdjacentElement("beforeend", label);
+    document.querySelector(".attributes").insertAdjacentElement("beforeend", input);
 }

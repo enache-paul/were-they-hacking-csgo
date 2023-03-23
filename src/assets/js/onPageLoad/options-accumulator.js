@@ -3,6 +3,7 @@
 function loadAllOptionsOnPage() {
     insertAllInterfacesOptions();
     insertMethods();
+    insertAttributesHandler();
 
     onChangeListeners();
 }
