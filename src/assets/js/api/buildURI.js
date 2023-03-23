@@ -1,5 +1,9 @@
 "use strict"
 
+function buildURI() {
+    return concatInterfaceAndMethod() + concatAttributes();
+}
+
 function concatInterfaceAndMethod() {
     const interfaceAPI = document.querySelector("#interface").value;
     const methodAPI = document.querySelector("#method");

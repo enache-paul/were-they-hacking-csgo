@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/screen.css">
     <script src="assets/js/api/buildURI.js"></script>
+    <script src="assets/js/api/submitInfo.js"></script>
 </head>
 <body>
 <header>
@@ -22,20 +23,27 @@
 <main>
 
     <div class="api-options">
-        <div class="interface">
-            <label for="interface">Choose an API:</label>
-            <select id="interface"></select>
+        <form id="submit">
+            <div class="interface">
+                <label for="interface">Choose an API:</label>
+                <select id="interface"></select>
+            </div>
+
+            <div class="methods">
+                <label for="method">Choose a method</label>
+                <select id="method"></select>
+            </div>
+
+            <div class="attributes hidden">
+
+            </div>
+
+            <input type="submit" class="">
+        </form>
+
+        <div class="response">
+
         </div>
-
-        <div class="methods">
-            <label for="method">Choose a method</label>
-            <select id="method"></select>
-        </div>
-
-        <div class="attributes hidden">
-
-        </div>
-
 
     </div>
 

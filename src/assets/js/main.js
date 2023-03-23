@@ -6,4 +6,5 @@ function init() {
     console.log("Page loaded")
 
     loadAllOptionsOnPage();
+    submitEvent();
 }
