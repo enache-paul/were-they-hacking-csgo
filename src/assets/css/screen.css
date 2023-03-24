@@ -2,3 +2,6 @@
     display: none;
 }
 
+.hint {
+    color: darkred;
+}

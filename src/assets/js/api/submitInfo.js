@@ -8,6 +8,7 @@ function sendRequest(e) {
     e.preventDefault();
     fetchFromServer(buildURI(), "GET")
         .then(r => {
+            savePreviousInputToLocalStorage();
             console.log(r);
             /*
             r.players.forEach(player => {
