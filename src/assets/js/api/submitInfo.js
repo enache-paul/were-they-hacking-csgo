@@ -8,11 +8,16 @@ function sendRequest(e) {
     e.preventDefault();
     fetchFromServer(buildURI(), "GET")
         .then(r => {
-            const x = r.response.players[0];
-            document.querySelector(".response").innerHTML = "";
-            for (const key in x) {
-                buildHTML(key, x);
-            }
+            console.log(r);
+            /*
+            r.players.forEach(player => {
+                document.querySelector(".response").innerHTML = "";
+                for (const key in player) {
+                    buildHTML(key, player);
+                }
+            })
+
+             */
         });
 }
 

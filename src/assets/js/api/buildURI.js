@@ -16,7 +16,8 @@ function concatInterfaceAndMethod() {
 function concatAttributes() {
     let string = "?";
     for (const key in getAllAttributes()) {
-        string += getAllAttributes()[key].attribute + "=" + getAllAttributes()[key].value + "&" ;
+        if (getAllAttributes()[key].value !== "")
+            string += getAllAttributes()[key].attribute + "=" + getAllAttributes()[key].value + "&" ;
     }
 
     return string.slice(0, -1);
