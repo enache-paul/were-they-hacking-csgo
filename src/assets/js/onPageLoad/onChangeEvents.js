@@ -11,6 +11,7 @@ function onInterfaceChange() {
         insertMethods();
         insertAttributesHandler();
         tryAutocomplete();
+        saveInterfaceAndMethodToLocalStorage();
     })
 }
 
@@ -19,6 +20,7 @@ function onMethodChange() {
         clearSelector(".attributes");
         insertAttributesHandler();
         tryAutocomplete();
+        saveInterfaceAndMethodToLocalStorage();
     })
 }
 

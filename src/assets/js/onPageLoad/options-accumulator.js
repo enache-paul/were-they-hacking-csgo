@@ -10,5 +10,6 @@ function initialLoad() {
     insertAllInterfacesOptions();
     insertMethods();
     insertAttributesHandler();
+    tryAutocompleteMethodAndInterface();
     tryAutocomplete();
 }
