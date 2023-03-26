@@ -29,10 +29,12 @@ function insertAttributes() {
 
     json.apiInterface.forEach(steamInterface => {
         if (steamInterface.name === interfaceName && steamInterface.methods) {
+            let counter = 0;
             steamInterface.methods.forEach(method => {
-                if (method.name === selectedMethod) {
+                if (method.name === selectedMethod && counter === 0) {
                     method.arguments.forEach(arg =>
                         addInputLabel("text", arg.name, arg.name+ " (" + arg.description + ")", arg.required))
+                    counter++;
                 }
             })
         }
