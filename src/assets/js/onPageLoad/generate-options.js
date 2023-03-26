@@ -1,7 +1,9 @@
 "use strict"
 
+const json = test;
+
 function insertAllInterfacesOptions() {
-    apiOptionsData.apiInterface.forEach(steamInterface => {
+    json.apiInterface.forEach(steamInterface => {
         addElement(steamInterface.name, "#interface", "option", steamInterface)
     })
 }
@@ -9,7 +11,7 @@ function insertAllInterfacesOptions() {
 function insertMethods() {
     const interfaceName = document.querySelector("#interface").value;
 
-    apiOptionsData.apiInterface.forEach(steamInterface => {
+    json.apiInterface.forEach(steamInterface => {
         if (steamInterface.name === interfaceName && steamInterface.methods) {
             steamInterface.methods.forEach(method => {
                 addElement(method.name, "#method", "option", method)
@@ -25,7 +27,7 @@ function insertAttributes() {
     const selectedMethod = document.querySelector("#method").value;
     const interfaceName = document.querySelector("#interface").value;
 
-    apiOptionsData.apiInterface.forEach(steamInterface => {
+    json.apiInterface.forEach(steamInterface => {
         if (steamInterface.name === interfaceName && steamInterface.methods) {
             steamInterface.methods.forEach(method => {
                 if (method.name === selectedMethod) {
@@ -70,7 +72,7 @@ function addInputLabel(type, id, name, required) {
     input.type = type;
     input.id = id;
     input.name = name;
-    if (required === true) {
+    if (required === 'true') {
         input.setAttribute("required", "");
     }
 
